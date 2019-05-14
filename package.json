@@ -1,6 +1,6 @@
 {
 	"name": "column-string",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": false,
 	"license": "MIT",
 	"author": "Jerome Miranda <jerome.m.miranda@gmail.com>",
@@ -36,14 +36,14 @@
 		"@babel/preset-env": "~7.4.4",
 		"@babel/preset-react": "^7.0.0",
 		"@babel/runtime": "~7.4.4",
-		"babel-loader": "~8.0.5",
+		"babel-loader": "~8.0.6",
 		"babel-plugin-react-html-attrs": "^2.1.0",
 		"css-loader": "~2.1.1",
 		"file-loader": "~3.0.1",
 		"node-sass": "~4.12.0",
 		"sass-loader": "~7.1.0",
 		"style-loader": "~0.23.1",
-		"webpack": "~4.30.0",
+		"webpack": "~4.31.0",
 		"webpack-cli": "~3.3.2"
 	}
 }
