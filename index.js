@@ -2,11 +2,20 @@ import React from 'react';
 import Cleave from 'cleave.js/react';
 
 export default props => {
-	const { editable = false, format = [], id, multiple = false, onChange, richText, ...defaultProps } = props;
+	const {
+		editable = false,
+		format = [],
+		id,
+		multiple = false,
+		onChange,
+		richText,
+		onChangeText,
+		...defaultProps
+	} = props;
 
 	return {
 		...defaultProps,
-		Cell: ({ original, value }) => {
+		Cell: ({ index, original, value }) => {
 			if (editable && !multiple && !richText) {
 				if (format.length != 0) {
 					let blocks = format.map(d => parseInt(d.characterLength)),
@@ -31,7 +40,8 @@ export default props => {
 						<input
 							type="text"
 							class="form-control"
-							defaultValue={value}
+							value={value}
+							onChange={e => onChangeText(index, id, e.target.value)}
 							onKeyDown={e => {
 								if (e.key === 'Enter') {
 									onChange({ Id: original.Id, [id]: e.target.value });
