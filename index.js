@@ -2,12 +2,12 @@ import React from 'react';
 import Cleave from 'cleave.js/react';
 
 export default props => {
-	const { editable = false, format = [], id, multiple = false, onChange, ...defaultProps } = props;
+	const { editable = false, format = [], id, multiple = false, onChange, richText, ...defaultProps } = props;
 
 	return {
 		...defaultProps,
 		Cell: ({ original, value }) => {
-			if (editable && !multiple) {
+			if (editable && !multiple && !richText) {
 				if (format.length != 0) {
 					let blocks = format.map(d => parseInt(d.characterLength)),
 						delimiters = format.map(d => d.delimiter);
