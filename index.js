@@ -5,16 +5,20 @@ export default props => {
 	const {
 		editable = false,
 		format = [],
+		headerStyle = {},
 		id,
 		multiple = false,
 		onChange,
 		richText,
 		onChangeText,
+		style = {},
 		...defaultProps
 	} = props;
 
 	return {
 		...defaultProps,
+		style: { ...style, display: 'flex', alignItems: 'center' },
+		headerStyle: { ...headerStyle, display: 'flex', alignItems: 'center' },
 		Cell: ({ index, original, value }) => {
 			if (editable && !multiple && !richText) {
 				if (format.length != 0) {
