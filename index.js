@@ -29,6 +29,7 @@ export default props => {
 						<Cleave
 							autoComplete="off"
 							class="form-control"
+							onBlur={e => onChange({ Id: original.Id, [id]: e.target.rawValue })}
 							onKeyDown={e => {
 								if (e.key === 'Enter') {
 									onChange({ Id: original.Id, [id]: e.target.rawValue });
@@ -45,6 +46,7 @@ export default props => {
 							type="text"
 							class="form-control"
 							value={value}
+							onBlur={e => onChange({ Id: original.Id, [id]: e.target.value })}
 							onChange={e => onChangeText(index, id, e.target.value)}
 							onKeyDown={e => {
 								if (e.key === 'Enter') {
