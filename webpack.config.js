@@ -53,6 +53,11 @@ module.exports = {
 		chunkFilename: '[name].[chunkhash].chunk.min.js',
 		libraryTarget: 'commonjs2'
 	},
+	externals: {
+		'cleave.js': 'commonjs cleave.js',
+		react: 'commonjs react',
+		webpack: 'commonjs webpack'
+	},
 	plugins: [
 		new webpack.optimize.AggressiveMergingPlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin(),
