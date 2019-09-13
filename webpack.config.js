@@ -53,6 +53,7 @@ module.exports = {
 		libraryTarget: 'commonjs2'
 	},
 	externals: {
+		'@volenday/input-text': 'commonjs @volenday/input-text',
 		'cleave.js': 'commonjs cleave.js',
 		react: 'commonjs react',
 		webpack: 'commonjs webpack'

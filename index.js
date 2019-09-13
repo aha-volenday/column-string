@@ -1,5 +1,6 @@
 import React from 'react';
 import Cleave from 'cleave.js/react';
+import InputText from '@volenday/input-text';
 
 export default props => {
 	const {
@@ -43,19 +44,13 @@ export default props => {
 					);
 				} else {
 					return (
-						<input
-							type="text"
-							class="form-control"
-							value={value}
+						<InputText
+							id={id}
 							onBlur={e => onChange({ Id: original.Id, [id]: e.target.value })}
-							onChange={e => onChangeText(index, id, e.target.value)}
-							onKeyDown={e => {
-								if (e.key === 'Enter') {
-									onChange({ Id: original.Id, [id]: e.target.value });
-									e.target.blur();
-								}
-								return;
-							}}
+							onChange={(field, value) => onChangeText(index, field, value)}
+							onPressEnter={e => onChange({ Id: original.Id, [id]: e.target.value })}
+							withLabel={false}
+							value={value}
 						/>
 					);
 				}
