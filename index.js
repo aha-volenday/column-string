@@ -1,10 +1,12 @@
 import React from 'react';
 import Cleave from 'cleave.js/react';
 import InputText from '@volenday/input-text';
+import striptags from 'striptags';
 
 export default props => {
 	const {
 		editable = false,
+		stripHTMLTags = false,
 		format = [],
 		headerStyle = {},
 		id,
@@ -68,7 +70,7 @@ export default props => {
 						/>
 					);
 				}
-				return <span>{value}</span>;
+				return <span>{stripHTMLTags ? striptags(value) : value}</span>;
 			}
 		},
 		Filter: ({ filter, onChange }) => {

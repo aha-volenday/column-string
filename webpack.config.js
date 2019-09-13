@@ -56,7 +56,8 @@ module.exports = {
 		'@volenday/input-text': 'commonjs @volenday/input-text',
 		'cleave.js': 'commonjs cleave.js',
 		react: 'commonjs react',
-		webpack: 'commonjs webpack'
+		webpack: 'commonjs webpack',
+		striptags: 'commonjs striptags'
 	},
 	plugins: [
 		new webpack.optimize.AggressiveMergingPlugin(),
