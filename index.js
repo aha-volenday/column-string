@@ -49,7 +49,7 @@ export default props => {
 						<InputText
 							id={id}
 							onBlur={e => onChange({ Id: original.Id, [id]: e.target.value })}
-							onChange={(field, value) => onChangeText(index, field, value)}
+							onChange={(e, field, value) => onChangeText(index, field, value)}
 							onPressEnter={e => onChange({ Id: original.Id, [id]: e.target.value })}
 							withLabel={false}
 							value={value}
