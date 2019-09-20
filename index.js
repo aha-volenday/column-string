@@ -2,6 +2,7 @@ import React from 'react';
 import Cleave from 'cleave.js/react';
 import InputText from '@volenday/input-text';
 import striptags from 'striptags';
+import { Formik } from 'formik';
 
 export default props => {
 	const {
@@ -22,56 +23,44 @@ export default props => {
 		...defaultProps,
 		style: { ...style, display: 'flex', alignItems: 'center' },
 		headerStyle: { ...headerStyle, display: 'flex', alignItems: 'center' },
-		Cell: ({ index, original, value }) => {
+		Cell: ({ original, value }) => {
 			if (editable && !multiple && !richText) {
-				if (format.length != 0) {
-					let blocks = format.map(d => parseInt(d.characterLength)),
-						delimiters = format.map(d => d.delimiter);
-					delimiters.pop();
-					return (
-						<Cleave
-							autoComplete="off"
-							class="form-control"
-							onBlur={e => onChange({ Id: original.Id, [id]: e.target.rawValue })}
-							onKeyDown={e => {
-								if (e.key === 'Enter') {
-									onChange({ Id: original.Id, [id]: e.target.rawValue });
-									e.target.blur();
-								}
-								return;
-							}}
-							options={{ delimiters, blocks }}
-							value={value ? value : ''}
-						/>
-					);
-				} else {
-					return (
-						<InputText
-							id={id}
-							onBlur={e => onChange({ Id: original.Id, [id]: e.target.value })}
-							onChange={(e, field, value) => onChangeText(index, field, value)}
-							onPressEnter={e => onChange({ Id: original.Id, [id]: e.target.value })}
-							withLabel={false}
-							value={value}
-						/>
-					);
-				}
-			} else {
-				if (format.length != 0) {
-					let blocks = format.map(d => parseInt(d.characterLength)),
-						delimiters = format.map(d => d.delimiter);
-					delimiters.pop();
-					return (
-						<Cleave
-							disabled={true}
-							options={{ delimiters, blocks }}
-							value={value}
-							style={{ padding: 0, border: 'none', backgroundColor: 'transparent' }}
-						/>
-					);
-				}
-				return <span>{stripHTMLTags ? striptags(value) : value}</span>;
+				return (
+					<Formik
+						enableReinitialize={true}
+						initialValues={{ [id]: value }}
+						onSubmit={values => onChange({ ...values, Id: original.Id })}
+						validateOnBlur={false}
+						validateOnChange={false}
+						render={({ handleChange, submitForm, values }) => (
+							<InputText
+								format={format}
+								id={id}
+								onBlur={submitForm}
+								onChange={handleChange}
+								onPressEnter={submitForm}
+								withLabel={false}
+								value={values[id]}
+							/>
+						)}
+					/>
+				);
 			}
+
+			if (format.length != 0) {
+				let blocks = format.map(d => parseInt(d.characterLength)),
+					delimiters = format.map(d => d.delimiter);
+				delimiters.pop();
+				return (
+					<Cleave
+						disabled={true}
+						options={{ delimiters, blocks }}
+						value={value}
+						style={{ padding: 0, border: 'none', backgroundColor: 'transparent' }}
+					/>
+				);
+			}
+			return <span>{stripHTMLTags ? striptags(value) : value}</span>;
 		},
 		Filter: ({ filter, onChange }) => {
 			return (

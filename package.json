@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"private": false,
 	"license": "MIT",
 	"author": "Jerome Miranda <jerome.m.miranda@gmail.com>",
@@ -13,14 +13,18 @@
 	"peerDependencies": {
 		"@volenday/input-text": "~0.1.21",
 		"cleave.js": "~1.5.3",
+		"formik": "~1.5.8",
 		"react": "~16.9.0",
-		"striptags": "^3.1.1"
+		"react-dom": "~16.9.0",
+		"striptags": "~3.1.1"
 	},
 	"dependencies": {
 		"@volenday/input-text": "~0.1.21",
 		"cleave.js": "~1.5.3",
+		"formik": "~1.5.8",
 		"react": "~16.9.0",
-		"striptags": "^3.1.1",
+		"react-dom": "~16.9.0",
+		"striptags": "~3.1.1",
 		"webpack": "~4.40.2"
 	},
 	"devDependencies": {
