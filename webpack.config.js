@@ -55,6 +55,7 @@ module.exports = {
 	externals: {
 		'@volenday/input-text': 'commonjs @volenday/input-text',
 		'cleave.js': 'commonjs cleave.js',
+		formik: 'commonjs formik',
 		react: 'commonjs react',
 		webpack: 'commonjs webpack',
 		striptags: 'commonjs striptags'

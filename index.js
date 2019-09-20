@@ -38,7 +38,10 @@ export default props => {
 								id={id}
 								onBlur={submitForm}
 								onChange={handleChange}
-								onPressEnter={submitForm}
+								onPressEnter={e => {
+									submitForm(e);
+									e.target.blur();
+								}}
 								withLabel={false}
 								value={values[id]}
 							/>
