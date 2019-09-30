@@ -67,12 +67,26 @@ export default props => {
 		},
 		Filter: ({ filter, onChange }) => {
 			return (
-				<input
-					type="text"
-					class="form-control"
-					onChange={e => onChange(e.target.value)}
-					value={filter ? filter.value : ''}
-					placeholder="Search..."
+				<Formik
+					enableReinitialize={true}
+					initialValues={{ filter: filter ? filter.value : '' }}
+					onSubmit={values => onChange(values.filter)}
+					validateOnBlur={false}
+					validateOnChange={false}
+					render={({ handleChange, submitForm, values }) => (
+						<InputText
+							id="filter"
+							onBlur={submitForm}
+							onChange={e => {
+								handleChange(e);
+								if (values.filter != '' && e.target.value == '') submitForm(e);
+							}}
+							onPressEnter={submitForm}
+							placeholder="Search..."
+							withLabel={false}
+							value={values.filter}
+						/>
+					)}
 				/>
 			);
 		}
