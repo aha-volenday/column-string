@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"private": false,
 	"license": "MIT",
 	"author": "Jerome Miranda <jerome.m.miranda@gmail.com>",
@@ -19,16 +19,16 @@
 		"striptags": "~3.1.1"
 	},
 	"dependencies": {
-		"@volenday/input-text": "~0.1.33",
+		"@volenday/input-text": "^0.1.36",
 		"cleave.js": "~1.5.3",
 		"formik": "~1.5.8",
-		"react": "~16.10.1",
-		"react-dom": "~16.10.1",
+		"react": "^16.10.2",
+		"react-dom": "^16.10.2",
 		"striptags": "~3.1.1",
-		"webpack": "~4.41.0"
+		"webpack": "^4.41.2"
 	},
 	"devDependencies": {
-		"@babel/core": "~7.6.2",
+		"@babel/core": "^7.6.4",
 		"@babel/plugin-proposal-class-properties": "~7.5.5",
 		"@babel/plugin-proposal-decorators": "~7.6.0",
 		"@babel/plugin-proposal-do-expressions": "~7.6.0",
@@ -46,12 +46,12 @@
 		"@babel/plugin-syntax-dynamic-import": "~7.2.0",
 		"@babel/plugin-syntax-import-meta": "~7.2.0",
 		"@babel/plugin-transform-async-to-generator": "~7.5.0",
-		"@babel/preset-env": "~7.6.2",
-		"@babel/preset-react": "^7.0.0",
-		"@babel/runtime": "~7.6.2",
+		"@babel/preset-env": "^7.6.3",
+		"@babel/preset-react": "^7.6.3",
+		"@babel/runtime": "^7.6.3",
 		"babel-loader": "~8.0.6",
 		"babel-plugin-react-html-attrs": "^2.1.0",
-		"core-js": "~3.2.1",
+		"core-js": "^3.3.2",
 		"css-loader": "~3.2.0",
 		"file-loader": "~4.2.0",
 		"node-sass": "~4.12.0",
