@@ -1057,21 +1057,21 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@volenday/ckeditor5-build-classic@^12.4.4":
-  version "12.4.4"
-  resolved "https://registry.yarnpkg.com/@volenday/ckeditor5-build-classic/-/ckeditor5-build-classic-12.4.4.tgz#3a987255f38cf3992c2938031595b39796066d83"
-  integrity sha512-gIvlZYeEyO8oNP9pFUNrHWZZqjOtYf4L4et3DJb09zgA81WPmwqgQOKr0PsSZCTZ39mSR5HovSI03kScQho0Cg==
+"@volenday/ckeditor5-build-classic@^12.4.5":
+  version "12.4.5"
+  resolved "https://registry.yarnpkg.com/@volenday/ckeditor5-build-classic/-/ckeditor5-build-classic-12.4.5.tgz#b249003938390a1efae8eb22165438c7e2df010a"
+  integrity sha512-bjMy4bzgjxo1JlK7ZpNzz5x1crzVQuNwpuGC1YnOgihVNcOBEoQfsK14RbsSI0c8leDaBliyez3bMFkPWCJgtQ==
   dependencies:
     "@ckeditor/ckeditor5-font" "^11.2.2"
     "@ckeditor/ckeditor5-upload" "~12.0.0"
 
-"@volenday/input-text@^0.1.37":
-  version "0.1.37"
-  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-0.1.37.tgz#5da1b51861ecf36c1bff86a6f18dd3e7e54c681d"
-  integrity sha512-hwUC2sK6Jxx0v9NErK70VmqPcfoblzX4Jfrvz/E93j7hDMAFzy4uTdq8QVmjhZDY+lKKnCqMeHFE/a7aVbYJ4w==
+"@volenday/input-text@^0.1.38":
+  version "0.1.38"
+  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-0.1.38.tgz#54c880435977b7e5d09554461e8c2d94f12ad121"
+  integrity sha512-qufb1/IaOw/gFUxcOcJGMs6yM/hz0EaO8iOkAIPzpSC+FhNQL62swE4RQfzS00aoere46zwGAj7Vodzbt6p7zQ==
   dependencies:
     "@ckeditor/ckeditor5-react" "~1.1.3"
-    "@volenday/ckeditor5-build-classic" "^12.4.4"
+    "@volenday/ckeditor5-build-classic" "^12.4.5"
     antd "^3.24.1"
     cleave.js "^1.5.3"
     react "^16.10.2"
