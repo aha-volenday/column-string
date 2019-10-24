@@ -1,5 +1,4 @@
 import React from 'react';
-import Cleave from 'cleave.js/react';
 import InputText from '@volenday/input-text';
 import striptags from 'striptags';
 import { Formik } from 'formik';
@@ -51,15 +50,16 @@ export default props => {
 			}
 
 			if (format.length != 0) {
-				let blocks = format.map(d => parseInt(d.characterLength)),
-					delimiters = format.map(d => d.delimiter);
-				delimiters.pop();
 				return (
-					<Cleave
+					<InputText
 						disabled={true}
-						options={{ delimiters, blocks }}
-						value={value}
-						style={{ padding: 0, border: 'none', backgroundColor: 'transparent' }}
+						format={format}
+						id={id}
+						onBlur={() => {}}
+						onChange={() => {}}
+						onPressEnter={() => {}}
+						withLabel={false}
+						value={values[id]}
 					/>
 				);
 			}
