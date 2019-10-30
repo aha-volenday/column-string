@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "0.1.16",
+	"version": "0.1.17",
 	"private": false,
 	"license": "MIT",
 	"author": "Jerome Miranda <jerome.m.miranda@gmail.com>",
@@ -18,8 +18,8 @@
 		"striptags": "~3.1.1"
 	},
 	"dependencies": {
-		"@volenday/input-text": "^0.1.43",
-		"formik": "~1.5.8",
+		"@volenday/input-text": "^0.1.47",
+		"formik": "^2.0.3",
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0",
 		"striptags": "~3.1.1",
@@ -49,7 +49,7 @@
 		"@babel/runtime": "^7.6.3",
 		"babel-loader": "~8.0.6",
 		"babel-plugin-react-html-attrs": "^2.1.0",
-		"core-js": "^3.3.3",
+		"core-js": "^3.3.5",
 		"css-loader": "~3.2.0",
 		"file-loader": "~4.2.0",
 		"node-sass": "^4.13.0",
