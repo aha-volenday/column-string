@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "0.1.17",
+	"version": "0.1.18",
 	"private": false,
 	"license": "MIT",
 	"author": "Jerome Miranda <jerome.m.miranda@gmail.com>",
@@ -18,7 +18,7 @@
 		"striptags": "~3.1.1"
 	},
 	"dependencies": {
-		"@volenday/input-text": "^0.1.47",
+		"@volenday/input-text": "^0.1.49",
 		"formik": "^2.0.3",
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0",
