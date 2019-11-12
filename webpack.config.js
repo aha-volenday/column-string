@@ -53,11 +53,11 @@ module.exports = {
 		libraryTarget: 'commonjs2'
 	},
 	externals: {
-		'@volenday/input-text': 'commonjs @volenday/input-text',
-		formik: 'commonjs formik',
-		react: 'commonjs react',
-		webpack: 'commonjs webpack',
-		striptags: 'commonjs striptags'
+		'@volenday/input-text': '@volenday/input-text',
+		formik: 'formik',
+		react: 'react',
+		webpack: 'webpack',
+		striptags: 'striptags'
 	},
 	plugins: [
 		new webpack.optimize.AggressiveMergingPlugin(),

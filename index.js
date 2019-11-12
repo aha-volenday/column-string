@@ -51,20 +51,6 @@ export default props => {
 				);
 			}
 
-			if (format.length != 0) {
-				return (
-					<InputText
-						disabled={true}
-						format={format}
-						id={id}
-						onBlur={() => {}}
-						onChange={() => {}}
-						onPressEnter={() => {}}
-						withLabel={false}
-						value={values[id]}
-					/>
-				);
-			}
 			return <span>{stripHTMLTags ? striptags(value) : value}</span>;
 		},
 		Filter: ({ filter, onChange }) => {
