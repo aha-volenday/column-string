@@ -55,6 +55,7 @@ module.exports = {
 	externals: {
 		'@volenday/input-text': '@volenday/input-text',
 		formik: 'formik',
+		lodash: 'lodash',
 		react: 'react',
 		webpack: 'webpack',
 		striptags: 'striptags'
