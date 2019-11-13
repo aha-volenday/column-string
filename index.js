@@ -71,7 +71,7 @@ export default props => {
 									submitForm(e);
 								} else {
 									timeout && clearTimeout(timeout);
-									timeout = setTimeout(() => submitForm(e), 500);
+									timeout = setTimeout(() => submitForm(e), 300);
 								}
 							}}
 							onPressEnter={submitForm}
