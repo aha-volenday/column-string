@@ -2,7 +2,6 @@ import React from 'react';
 import InputText from '@volenday/input-text';
 import striptags from 'striptags';
 import { Formik } from 'formik';
-import { debounce } from 'lodash';
 
 export default props => {
 	const {
@@ -53,37 +52,36 @@ export default props => {
 
 			return <span>{stripHTMLTags ? striptags(value) : value}</span>;
 		},
-		Filter: ({ filter, onChange }) => (
-			<Formik
-				enableReinitialize={true}
-				initialValues={{ filter: filter ? filter.value : '' }}
-				onSubmit={values => onChange(values.filter)}
-				validateOnBlur={false}
-				validateOnChange={false}>
-				{({ handleChange, submitForm, values }) => (
-					<InputText
-						id="filter"
-						onChange={e => {
-							handleChange(e);
-							if (values.filter != '' && e.target.value == '') {
-								submitForm(e);
-							} else {
-								console.log('yo');
+		Filter: ({ filter, onChange }) => {
+			let timeout = null;
 
-								debounce(() => {
-									console.log('done');
-
+			return (
+				<Formik
+					enableReinitialize={true}
+					initialValues={{ filter: filter ? filter.value : '' }}
+					onSubmit={values => onChange(values.filter)}
+					validateOnBlur={false}
+					validateOnChange={false}>
+					{({ handleChange, submitForm, values }) => (
+						<InputText
+							id="filter"
+							onChange={e => {
+								handleChange(e);
+								if (values.filter != '' && e.target.value == '') {
 									submitForm(e);
-								}, 500);
-							}
-						}}
-						onPressEnter={submitForm}
-						placeholder="Search..."
-						withLabel={false}
-						value={values.filter}
-					/>
-				)}
-			</Formik>
-		)
+								} else {
+									timeout && clearTimeout(timeout);
+									timeout = setTimeout(() => submitForm(e), 500);
+								}
+							}}
+							onPressEnter={submitForm}
+							placeholder="Search..."
+							withLabel={false}
+							value={values.filter}
+						/>
+					)}
+				</Formik>
+			);
+		}
 	};
 };
