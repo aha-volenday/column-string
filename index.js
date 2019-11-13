@@ -63,13 +63,18 @@ export default props => {
 				{({ handleChange, submitForm, values }) => (
 					<InputText
 						id="filter"
-						onBlur={submitForm}
 						onChange={e => {
 							handleChange(e);
 							if (values.filter != '' && e.target.value == '') {
 								submitForm(e);
 							} else {
-								debounce(() => submitForm(e), 500);
+								console.log('yo');
+
+								debounce(() => {
+									console.log('done');
+
+									submitForm(e);
+								}, 500);
 							}
 						}}
 						onPressEnter={submitForm}
