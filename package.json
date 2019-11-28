@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"private": false,
 	"license": "MIT",
 	"author": "Volenday <developers@volenday.com>",
@@ -11,10 +11,10 @@
 	},
 	"main": "dist/index.min.js",
 	"dependencies": {
-		"@volenday/input-text": "^0.1.50",
-		"formik": "^2.0.4",
-		"react": "^16.11.0",
-		"react-dom": "^16.11.0",
+		"@volenday/input-text": "~0.1.52",
+		"formik": "~2.0.4",
+		"react": "~16.11.0",
+		"react-dom": "~16.11.0",
 		"striptags": "~3.1.1"
 	},
 	"devDependencies": {

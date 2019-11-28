@@ -1114,10 +1114,10 @@
     "@ckeditor/ckeditor5-ui" "^14.0.0"
     "@ckeditor/ckeditor5-utils" "^14.0.0"
 
-"@ckeditor/ckeditor5-react@~1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-1.1.3.tgz#7d79f3d5390f3f8eaab53ef03cf97fd782c56318"
-  integrity sha512-h5jgUOkGt8up3yjyOP7LXJTuhMtbiUnDn1Bv4FEJ5Bjl4hs5cDk1+U8sghog/KJ3C84kCHn5P81slo0JzUuYyQ==
+"@ckeditor/ckeditor5-react@~2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-2.0.0.tgz#05c00d17840b54e1126aee97ffe25a1dd2713d4b"
+  integrity sha512-1vattviaAgFNd9/XkZqqN8xrY6U9G+fRXPRPDE8ayl4aYDuVf1gtUORFsDL2k7q2vfT/ukOzrLclu51bC40B3A==
   dependencies:
     prop-types "^15.6.1"
 
@@ -1167,7 +1167,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@volenday/ckeditor5-build-classic@^12.4.8":
+"@volenday/ckeditor5-build-classic@~12.4.8":
   version "12.4.8"
   resolved "https://registry.yarnpkg.com/@volenday/ckeditor5-build-classic/-/ckeditor5-build-classic-12.4.8.tgz#6d88d337e805c8bccee9a31f5b97bd555efc5120"
   integrity sha512-4AFGuJnCG33XN3lGZuULVVz1XhvHgkzgJzc4IKB8c6o8G0skoaPK6Rgekenzzr+tLL4cJXIlEYRJ0exAXCaekw==
@@ -1175,18 +1175,18 @@
     "@ckeditor/ckeditor5-font" "^11.2.2"
     "@ckeditor/ckeditor5-upload" "~12.0.0"
 
-"@volenday/input-text@^0.1.50":
-  version "0.1.50"
-  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-0.1.50.tgz#9cd016041ba53b2c704442b0d112b99b67370a45"
-  integrity sha512-mJdOwzGHFK0IpdSKgilnZFYVefiBcy0AShmLKG4WqnHo4b7oFC77OXHWVtfk0jw4EqYqk5nmLHn3d5GHA0C0Zg==
+"@volenday/input-text@^0.1.52":
+  version "0.1.52"
+  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-0.1.52.tgz#ef9b3657ba4cf70dc56481e4b9957c9bdc2c65ac"
+  integrity sha512-BFzBtcuyvAeQGIoZ7bk8Tju3a4MvxrTB6PxBbyXoJ5sXVZU/5LYWTh+22k6NSdVJ6SgI+0vTmWRJNgPXIMIZNQ==
   dependencies:
-    "@ckeditor/ckeditor5-react" "~1.1.3"
-    "@volenday/ckeditor5-build-classic" "^12.4.8"
-    antd "^3.25.1"
-    react "^16.11.0"
-    react-dom "^16.11.0"
-    react-input-mask "^2.0.4"
-    unidecode "^0.1.8"
+    "@ckeditor/ckeditor5-react" "~2.0.0"
+    "@volenday/ckeditor5-build-classic" "~12.4.8"
+    antd "~3.25.3"
+    react "~16.12.0"
+    react-dom "~16.12.0"
+    react-input-mask "~2.0.4"
+    unidecode "~0.1.8"
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -1413,10 +1413,10 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd@^3.25.1:
-  version "3.25.1"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.25.1.tgz#c23732e63fc01fed30d9ab708e9ef4e71527ed82"
-  integrity sha512-/ZbialgXQJaWh0gKM+tdpMMnew/sTclJGqq3JeY0GtENHgh7gBzPFs3R1F118lsyvDbM99JXfEnXKgSoVsOflg==
+antd@~3.25.3:
+  version "3.25.3"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.25.3.tgz#284cbf83cf5ab6c26dffb6066576f202ea60af50"
+  integrity sha512-qTegXllFsswzfSUyZHS8hebfUSqJ7uriDRcbE4Iwsa+/+IioHwDqha8cSzdbqrUqdjnozVV2vFDiGvRrI5fwEA==
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     "@ant-design/icons" "~2.1.1"
@@ -1457,7 +1457,7 @@ antd@^3.25.1:
     rc-steps "~3.5.0"
     rc-switch "~1.9.0"
     rc-table "~6.9.4"
-    rc-tabs "~9.6.4"
+    rc-tabs "~9.7.0"
     rc-time-picker "~3.7.1"
     rc-tooltip "~3.7.3"
     rc-tree "~2.1.0"
@@ -5007,10 +5007,10 @@ rc-table@~6.9.4:
     react-lifecycles-compat "^3.0.2"
     shallowequal "^1.0.2"
 
-rc-tabs@~9.6.4:
-  version "9.6.7"
-  resolved "https://registry.yarnpkg.com/rc-tabs/-/rc-tabs-9.6.7.tgz#c546115a351f5ed779ea5524143157f48ee0c015"
-  integrity sha512-OXbDOgaqv2MGK9QaDi6cdva6bNz3XGw+M9BHQpm1gTGmVQEGx5VcclDClH/3xobIzooxy8hrxg/s0rTlgDnC2w==
+rc-tabs@~9.7.0:
+  version "9.7.0"
+  resolved "https://registry.yarnpkg.com/rc-tabs/-/rc-tabs-9.7.0.tgz#ae09695bef5963d6e64e7bc10521c76dfdd8448b"
+  integrity sha512-kvmgp8/MfLzFZ06hWHignqomFQ5nF7BqKr5O1FfhE4VKsGrep52YSF/1MvS5oe0NPcI9XGNS2p751C5v6cYDpQ==
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     babel-runtime "6.x"
@@ -5177,12 +5177,22 @@ react-dom@^16.11.0:
     prop-types "^15.6.2"
     scheduler "^0.17.0"
 
+react-dom@~16.12.0:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
+  integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.18.0"
+
 react-fast-compare@^2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-input-mask@^2.0.4:
+react-input-mask@~2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-2.0.4.tgz#9ade5cf8196f4a856dbf010820fe75a795f3eb14"
   integrity sha512-1hwzMr/aO9tXfiroiVCx5EtKohKwLk/NT8QlJXHQ4N+yJJFyUuMT+zfTpLBwX/lK3PkuMlievIffncpMZ3HGRQ==
@@ -5225,6 +5235,15 @@ react@^16.11.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
   integrity sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+
+react@~16.12.0:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
+  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -5525,6 +5544,14 @@ scheduler@^0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.17.0.tgz#7c9c673e4ec781fac853927916d1c426b6f3ddfe"
   integrity sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
+  integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -6134,7 +6161,7 @@ unicode-property-aliases-ecmascript@^1.0.4:
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.0.5.tgz#a9cc6cc7ce63a0a3023fc99e341b94431d405a57"
   integrity sha512-L5RAqCfXqAwR3RriF8pM0lU0w4Ryf/GgzONwi6KnL1taJQa7x1TCxdJnILX59WIGOwR57IVxn7Nej0fz1Ny6fw==
 
-unidecode@^0.1.8:
+unidecode@~0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/unidecode/-/unidecode-0.1.8.tgz#efbb301538bc45246a9ac8c559d72f015305053e"
   integrity sha1-77swFTi8RSRqmsjFWdcvAVMFBT4=
