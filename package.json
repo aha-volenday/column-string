@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-string",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"private": false,
 	"license": "MIT",
 	"author": "Volenday <developers@volenday.com>",
@@ -11,7 +11,7 @@
 	},
 	"main": "dist/index.min.js",
 	"dependencies": {
-		"@volenday/input-text": "~0.1.52",
+		"@volenday/input-text": "^1.0.0",
 		"formik": "~2.0.4",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
@@ -44,12 +44,12 @@
 		"babel-loader": "^8.0.6",
 		"babel-plugin-react-html-attrs": "^2.1.0",
 		"compression-webpack-plugin": "^3.0.0",
-		"core-js": "^3.4.5",
-		"css-loader": "~3.2.0",
+		"core-js": "^3.4.7",
+		"css-loader": "^3.2.1",
 		"file-loader": "^5.0.2",
 		"node-sass": "^4.13.0",
 		"sass-loader": "~8.0.0",
-		"style-loader": "~1.0.0",
+		"style-loader": "^1.0.1",
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.10"
 	}
