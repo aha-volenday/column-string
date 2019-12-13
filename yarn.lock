@@ -1047,10 +1047,10 @@
     "@ckeditor/ckeditor5-font" "^11.2.2"
     "@ckeditor/ckeditor5-upload" "~12.0.0"
 
-"@volenday/input-text@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-1.0.0.tgz#fa97bc7b69d8388d2767d4edbfe0e8ed294f0226"
-  integrity sha512-qo+AzoJwDgN98L827xuZjUAxzzRHTpKa9IXdB0F60i3Ivjk3SJj5DS45nMGfQpkcIhtq3NC7ztsjQnSkmbgl8g==
+"@volenday/input-text@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@volenday/input-text/-/input-text-1.0.1.tgz#b7f022a8b2c0b5d81c079535cfa10e313b8ea0a2"
+  integrity sha512-DLm+SMxK6VsfhOsko3ZKnrLfc+6Pd4AclreELLe53sLhy+DnEyYIyhr4gCNl7R4v9/U3nSV4jXtKdK1q1Upt3Q==
   dependencies:
     "@ckeditor/ckeditor5-react" "~2.0.0"
     "@volenday/ckeditor5-build-classic" "~12.4.8"
