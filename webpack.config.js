@@ -57,7 +57,7 @@ module.exports = {
 		'@volenday/input-text': '@volenday/input-text',
 		formik: 'formik',
 		react: 'react',
-		webpack: 'webpack',
+		'react-dom': 'react-dom',
 		striptags: 'striptags'
 	},
 	plugins: [
