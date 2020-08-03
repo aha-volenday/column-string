@@ -17,7 +17,7 @@ export default props => {
 
 	return {
 		...defaultProps,
-		Cell: ({ row, value }) => {
+		Cell: ({ row: { original }, value }) => {
 			if (typeof value == 'undefined') return null;
 
 			if (editable && !multiple && !richText) {
@@ -25,7 +25,7 @@ export default props => {
 					<Formik
 						enableReinitialize={true}
 						initialValues={{ [id]: value }}
-						onSubmit={values => onChange({ ...values, Id: row.Id })}
+						onSubmit={values => onChange({ ...values, Id: original.Id })}
 						validateOnBlur={false}
 						validateOnChange={false}>
 						{({ handleChange, submitForm, values }) => (
