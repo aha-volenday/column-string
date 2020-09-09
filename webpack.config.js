@@ -55,9 +55,10 @@ module.exports = {
 	},
 	externals: {
 		'@volenday/input-text': '@volenday/input-text',
-		formik: 'formik',
+		antd: 'antd',
 		react: 'react',
 		'react-dom': 'react-dom',
+		'react-hook-form': 'react-hook-form',
 		striptags: 'striptags'
 	},
 	plugins: [
