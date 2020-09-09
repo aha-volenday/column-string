@@ -37,6 +37,7 @@ const Cell = memo(
 
 		if (editable && !multiple && !richText) {
 			const formRef = useRef();
+			const originalValue = value;
 			const { control, handleSubmit } = useForm({ defaultValues: { [id]: value } });
 			const onSubmit = values => onChange({ ...values, Id: original.Id });
 
@@ -49,11 +50,12 @@ const Cell = memo(
 							<InputText
 								format={format}
 								id={name}
-								onBlur={() => formRef.current.dispatchEvent(new Event('submit', { cancelable: true }))}
-								onChange={onChange}
-								onPressEnter={e => {
-									e.target.blur();
-								}}
+								onBlur={() =>
+									originalValue !== value &&
+									formRef.current.dispatchEvent(new Event('submit', { cancelable: true }))
+								}
+								onChange={e => onChange(e.target.value)}
+								onPressEnter={e => e.target.blur()}
 								withLabel={false}
 								value={value}
 							/>
@@ -83,7 +85,7 @@ const Filter = memo(({ column: { filterValue, setFilter } }) => {
 					<InputText
 						id={name}
 						onChange={e => {
-							onChange(e);
+							onChange(e.target.value);
 							if (value !== '' && e.target.value === '') {
 								formRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
 							} else {
