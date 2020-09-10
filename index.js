@@ -42,7 +42,7 @@ const Cell = memo(
 			const onSubmit = values => onChange({ ...values, Id: original.Id });
 
 			return (
-				<form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
+				<form onSubmit={handleSubmit(onSubmit)} ref={formRef} style={{ width: '100%' }}>
 					<Controller
 						control={control}
 						name={id}
@@ -77,7 +77,7 @@ const Filter = memo(({ column: { filterValue, setFilter } }) => {
 	const onSubmit = values => setFilter(values.filter);
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
+		<form onSubmit={handleSubmit(onSubmit)} ref={formRef} style={{ width: '100%' }}>
 			<Controller
 				control={control}
 				name="filter"
