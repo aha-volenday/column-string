@@ -92,7 +92,7 @@ const Filter = memo(({ column: { filterValue, setFilter } }) => {
 								timeout && clearTimeout(timeout);
 								timeout = setTimeout(
 									() => formRef.current.dispatchEvent(new Event('submit', { cancelable: true })),
-									300
+									1000
 								);
 							}
 						}}
