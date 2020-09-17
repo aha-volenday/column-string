@@ -56,6 +56,8 @@ module.exports = {
 	externals: {
 		'@volenday/input-text': '@volenday/input-text',
 		antd: 'antd',
+		'cleave.js': 'cleave.js',
+		'cleave.js/react': 'cleave.js/react',
 		react: 'react',
 		'react-dom': 'react-dom',
 		'react-hook-form': 'react-hook-form',

@@ -1,5 +1,6 @@
 import React, { memo, Suspense, useRef } from 'react';
 import { Skeleton } from 'antd';
+import Cleave from 'cleave.js/react';
 import InputText from '@volenday/input-text';
 import striptags from 'striptags';
 import { Controller, useForm } from 'react-hook-form';
@@ -62,6 +63,23 @@ const Cell = memo(
 						)}
 					/>
 				</form>
+			);
+		}
+
+		if (format.length !== 0) {
+			let blocks = format.map(d => parseInt(d.characterLength)),
+				delimiters = format.map(d => d.delimiter);
+			delimiters.pop();
+
+			return (
+				<div>
+					<Cleave
+						disabled={true}
+						options={{ delimiters, blocks }}
+						value={value}
+						style={{ border: 'none', backgroundColor: 'transparent' }}
+					/>
+				</div>
 			);
 		}
 
