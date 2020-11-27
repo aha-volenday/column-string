@@ -1,8 +1,6 @@
 import React, { memo, Suspense, useRef } from 'react';
 import { Skeleton } from 'antd';
-import InputText from '@volenday/input-text';
 import striptags from 'striptags';
-import { Controller, useForm } from 'react-hook-form';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
@@ -40,6 +38,9 @@ const Cell = memo(
 		if (typeof value === 'undefined') return null;
 
 		if (editable && !multiple && !richText) {
+			const InputText = require('@volenday/input-text').default;
+			const { Controller, useForm } = require('react-hook-form');
+
 			const formRef = useRef();
 			const originalValue = value;
 			const { control, handleSubmit } = useForm({ defaultValues: { [id]: value } });
@@ -93,6 +94,9 @@ const Cell = memo(
 );
 
 const Filter = memo(({ column: { filterValue, setFilter } }) => {
+	const InputText = require('@volenday/input-text').default;
+	const { Controller, useForm } = require('react-hook-form');
+
 	let timeout = null;
 
 	const formRef = useRef();
