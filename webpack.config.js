@@ -12,17 +12,19 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				loader: 'babel-loader',
-				query: {
-					presets: ['@babel/react', '@babel/env'],
-					plugins: [
-						'react-html-attrs',
-						['@babel/proposal-decorators', { legacy: true }],
-						'@babel/proposal-class-properties',
-						'@babel/plugin-proposal-export-default-from',
-						'@babel/plugin-syntax-dynamic-import'
-					]
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/react', '@babel/env'],
+						plugins: [
+							'react-html-attrs',
+							['@babel/proposal-decorators', { legacy: true }],
+							'@babel/proposal-class-properties',
+							'@babel/plugin-proposal-export-default-from',
+							'@babel/plugin-syntax-dynamic-import'
+						]
+					}
 				}
 			},
 			{

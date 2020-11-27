@@ -1,9 +1,10 @@
 import React, { memo, Suspense, useRef } from 'react';
 import { Skeleton } from 'antd';
-import Cleave from 'cleave.js/react';
 import InputText from '@volenday/input-text';
 import striptags from 'striptags';
 import { Controller, useForm } from 'react-hook-form';
+
+const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
 export default props => {
 	const {
@@ -19,16 +20,18 @@ export default props => {
 
 	return {
 		...defaultProps,
-		Cell: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Cell {...props} other={{ editable, format, id, multiple, onChange, richText, stripHTMLTags }} />
-			</Suspense>
-		),
-		Filter: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Filter {...props} />
-			</Suspense>
-		)
+		Cell: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Cell {...props} other={{ editable, format, id, multiple, onChange, richText, stripHTMLTags }} />
+				</Suspense>
+			) : null,
+		Filter: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Filter {...props} />
+				</Suspense>
+			) : null
 	};
 };
 
@@ -67,6 +70,8 @@ const Cell = memo(
 		}
 
 		if (format.length !== 0) {
+			const Cleave = require('cleave.js/react');
+
 			let blocks = format.map(d => parseInt(d.characterLength)),
 				delimiters = format.map(d => d.delimiter);
 			delimiters.pop();
