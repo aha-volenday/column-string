@@ -1,6 +1,7 @@
 import React, { memo, Suspense, useRef, useState } from 'react';
 import { Button, Popover, Skeleton, Typography } from 'antd';
 import striptags from 'striptags';
+import reactStringReplace from 'react-string-replace';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
@@ -8,6 +9,7 @@ import Filter from './filter';
 
 export default props => {
 	const {
+		keywords = '',
 		editable = false,
 		stripHTMLTags = false,
 		copyable = false,
@@ -28,7 +30,18 @@ export default props => {
 				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
 					<Cell
 						{...props}
-						other={{ copyable, editable, format, id, multiple, onChange, onCopy, richText, stripHTMLTags }}
+						other={{
+							copyable,
+							editable,
+							format,
+							id,
+							keywords,
+							multiple,
+							onChange,
+							onCopy,
+							richText,
+							stripHTMLTags
+						}}
 					/>
 				</Suspense>
 			) : null,
@@ -41,11 +54,24 @@ export default props => {
 	};
 };
 
+const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert) => {
+	const strip = stripHTMLTags ? striptags(toConvert) : toConvert;
+	const replaceText = reactStringReplace(strip, new RegExp('(' + keywords + ')', 'gi'), (match, index) => {
+		return (
+			<span key={`${match}-${index}`} style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>
+				{match}
+			</span>
+		);
+	});
+
+	return replaceText;
+};
+
 const Cell = memo(
 	({
 		column,
 		row: { original },
-		other: { copyable, editable, format, id, multiple, onChange, onCopy, richText, stripHTMLTags },
+		other: { copyable, editable, format, id, keywords, multiple, onChange, onCopy, richText, stripHTMLTags },
 		value
 	}) => {
 		if (typeof value === 'undefined') return null;
@@ -104,7 +130,9 @@ const Cell = memo(
 			);
 		}
 
-		const finalValue = stripHTMLTags ? striptags(value) : value;
+		const finalValue = stripHTMLTags
+			? highlightsKeywords(keywords, (stripHTMLTags = true), value)
+			: highlightsKeywords(keywords, (stripHTMLTags = false), value);
 
 		return finalValue.length >= 90 ? (
 			<div>
