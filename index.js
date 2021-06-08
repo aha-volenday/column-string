@@ -1,5 +1,5 @@
-import React, { memo, Suspense, useRef } from 'react';
-import { Skeleton } from 'antd';
+import React, { memo, Suspense, useRef, useState } from 'react';
+import { Button, Popover, Skeleton } from 'antd';
 import striptags from 'striptags';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
@@ -36,6 +36,8 @@ export default props => {
 const Cell = memo(
 	({ row: { original }, other: { editable, format, id, multiple, onChange, richText, stripHTMLTags }, value }) => {
 		if (typeof value === 'undefined') return null;
+
+		const [visible, setVisible] = useState(false);
 
 		if (editable && !multiple && !richText) {
 			const InputText = require('@volenday/input-text').default;
@@ -89,7 +91,38 @@ const Cell = memo(
 			);
 		}
 
-		return <span>{stripHTMLTags ? striptags(value) : value}</span>;
+		const finalValue = stripHTMLTags ? striptags(value) : value;
+
+		return finalValue.length >= 90 ? (
+			<div>
+				{finalValue.substr(0, 90).trim()}...
+				<Popover
+					content={
+						<>
+							<div dangerouslySetInnerHTML={{ __html: value }} />
+							<br />
+							<Button onClick={() => setVisible(false)} type="Link">
+								Close
+							</Button>
+						</>
+					}
+					trigger="click"
+					visible={visible}
+					onVisibleChange={() => setVisible(true)}
+					placement="top"
+					style={{ width: 350 }}>
+					<Button
+						type="link"
+						onClick={e => e.stopPropagation()}
+						size="small"
+						style={{ lineHeight: 0.5, marginLeft: 10, padding: 0, height: 'auto' }}>
+						<span style={{ color: '#1890ff' }}>show more</span>
+					</Button>
+				</Popover>
+			</div>
+		) : (
+			finalValue
+		);
 	}
 );
 
