@@ -58,6 +58,7 @@ module.exports = {
 	externals: {
 		'@volenday/input-text': '@volenday/input-text',
 		antd: 'antd',
+		'@ant-design/icons': '@ant-design/icons',
 		'cleave.js': 'cleave.js',
 		'cleave.js/react': 'cleave.js/react',
 		react: 'react',

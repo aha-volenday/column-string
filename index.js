@@ -4,12 +4,15 @@ import striptags from 'striptags';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
+import Filter from './filter';
+
 export default props => {
 	const {
 		editable = false,
 		stripHTMLTags = false,
 		format = [],
 		id,
+		list = [],
 		multiple = false,
 		onChange,
 		richText,
@@ -27,7 +30,7 @@ export default props => {
 		Filter: props =>
 			browser ? (
 				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-					<Filter {...props} />
+					<Filter {...props} id={id} list={list} />
 				</Suspense>
 			) : null
 	};
@@ -125,44 +128,3 @@ const Cell = memo(
 		);
 	}
 );
-
-const Filter = memo(({ column: { filterValue, setFilter } }) => {
-	const InputText = require('@volenday/input-text').default;
-	const { Controller, useForm } = require('react-hook-form');
-
-	let timeout = null;
-
-	const formRef = useRef();
-	const { control, handleSubmit } = useForm({ defaultValues: { filter: filterValue ? filterValue : '' } });
-	const onSubmit = values => setFilter(values.filter);
-
-	return (
-		<form onSubmit={handleSubmit(onSubmit)} ref={formRef} style={{ width: '100%' }}>
-			<Controller
-				control={control}
-				name="filter"
-				render={({ onChange, value, name }) => (
-					<InputText
-						id={name}
-						onChange={e => {
-							onChange(e.target.value);
-							if (value !== '' && e.target.value === '') {
-								formRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
-							} else {
-								timeout && clearTimeout(timeout);
-								timeout = setTimeout(
-									() => formRef.current.dispatchEvent(new Event('submit', { cancelable: true })),
-									1000
-								);
-							}
-						}}
-						onPressEnter={() => formRef.current.dispatchEvent(new Event('submit', { cancelable: true }))}
-						placeholder="Search..."
-						withLabel={false}
-						value={value}
-					/>
-				)}
-			/>
-		</form>
-	);
-});
