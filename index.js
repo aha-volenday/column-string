@@ -1,5 +1,5 @@
 import React, { memo, Suspense, useRef, useState } from 'react';
-import { Button, Popover, Skeleton } from 'antd';
+import { Button, Popover, Skeleton, Typography } from 'antd';
 import striptags from 'striptags';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
@@ -37,7 +37,12 @@ export default props => {
 };
 
 const Cell = memo(
-	({ row: { original }, other: { editable, format, id, multiple, onChange, richText, stripHTMLTags }, value }) => {
+	({
+		column,
+		row: { original },
+		other: { editable, format, id, multiple, onChange, richText, stripHTMLTags },
+		value
+	}) => {
 		if (typeof value === 'undefined') return null;
 
 		const [visible, setVisible] = useState(false);
@@ -98,7 +103,6 @@ const Cell = memo(
 
 		return finalValue.length >= 90 ? (
 			<div>
-				{finalValue.substr(0, 90).trim()}...
 				<Popover
 					content={
 						<>
@@ -114,13 +118,14 @@ const Cell = memo(
 					onVisibleChange={() => setVisible(true)}
 					placement="top"
 					style={{ width: 350 }}>
-					<Button
-						type="link"
-						onClick={e => e.stopPropagation()}
-						size="small"
-						style={{ lineHeight: 0.5, marginLeft: 10, padding: 0, height: 'auto' }}>
-						<span style={{ color: '#1890ff' }}>show more</span>
-					</Button>
+					<Typography.Paragraph
+						style={{
+							cursor: 'pointer',
+							width: column.width ? column.width - 30 : '100'
+						}}
+						ellipsis={true}>
+						{finalValue}
+					</Typography.Paragraph>
 				</Popover>
 			</div>
 		) : (
