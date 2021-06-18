@@ -10,11 +10,13 @@ export default props => {
 	const {
 		editable = false,
 		stripHTMLTags = false,
+		copyable = false,
 		format = [],
 		id,
 		list = [],
 		multiple = false,
 		onChange,
+		onCopy = () => {},
 		richText,
 		...defaultProps
 	} = props;
@@ -24,7 +26,10 @@ export default props => {
 		Cell: props =>
 			browser ? (
 				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-					<Cell {...props} other={{ editable, format, id, multiple, onChange, richText, stripHTMLTags }} />
+					<Cell
+						{...props}
+						other={{ copyable, editable, format, id, multiple, onChange, onCopy, richText, stripHTMLTags }}
+					/>
 				</Suspense>
 			) : null,
 		Filter: props =>
@@ -40,7 +45,7 @@ const Cell = memo(
 	({
 		column,
 		row: { original },
-		other: { editable, format, id, multiple, onChange, richText, stripHTMLTags },
+		other: { copyable, editable, format, id, multiple, onChange, onCopy, richText, stripHTMLTags },
 		value
 	}) => {
 		if (typeof value === 'undefined') return null;
@@ -123,13 +128,16 @@ const Cell = memo(
 							cursor: 'pointer',
 							width: column.width ? column.width - 30 : '100'
 						}}
+						copyable={copyable ? { onCopy: () => onCopy(finalValue, original) } : false}
 						ellipsis={true}>
 						{finalValue}
 					</Typography.Paragraph>
 				</Popover>
 			</div>
 		) : (
-			finalValue
+			<Typography.Text copyable={copyable ? { onCopy: () => onCopy(finalValue, original) } : false}>
+				{finalValue}
+			</Typography.Text>
 		);
 	}
 );
