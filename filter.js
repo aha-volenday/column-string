@@ -107,7 +107,7 @@ const Filter = ({ column, id, list, setFilter }) => {
 						Z to A
 					</Button>
 				</div>
-				<Divider />
+				<Divider style={{ margin: '10px 0px' }} />
 				<div>
 					<h4>Filter {renderCount()}</h4>
 					<Input.Search
@@ -119,15 +119,15 @@ const Filter = ({ column, id, list, setFilter }) => {
 					<List
 						dataSource={newOptions}
 						renderItem={renderItem}
-						style={{ height: 350, overflowY: 'scroll' }}
+						style={{ height: 150, overflowY: 'scroll' }}
 					/>
 				</div>
-				<Divider />
+				<Divider style={{ margin: '10px 0px' }} />
 				<div>
 					<h4>Column Settings</h4>
 					<Checkbox {...column.getToggleHiddenProps()}>Visible</Checkbox>
 				</div>
-				<Divider />
+				<Divider style={{ margin: '10px 0px' }} />
 				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<div
 						style={{
