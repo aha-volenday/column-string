@@ -9,17 +9,17 @@ import Filter from './filter';
 
 export default props => {
 	const {
-		keywords = '',
 		editable = false,
-		stripHTMLTags = false,
 		copyable = false,
 		format = [],
 		id,
+		keywords = '',
 		list = [],
 		multiple = false,
 		onChange,
 		onCopy = () => {},
 		richText,
+		stripHTMLTags = false,
 		...defaultProps
 	} = props;
 
@@ -69,7 +69,6 @@ const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert) => {
 
 const Cell = memo(
 	({
-		column,
 		row: { original },
 		other: { copyable, editable, format, id, keywords, multiple, onChange, onCopy, richText, stripHTMLTags },
 		value
@@ -134,38 +133,29 @@ const Cell = memo(
 			? highlightsKeywords(keywords, (stripHTMLTags = true), value)
 			: highlightsKeywords(keywords, (stripHTMLTags = false), value);
 
-		return finalValue.length >= 90 ? (
-			<div>
-				<Popover
-					content={
-						<>
-							<div dangerouslySetInnerHTML={{ __html: value }} />
-							<br />
-							<Button onClick={() => setVisible(false)} type="Link">
-								Close
-							</Button>
-						</>
-					}
-					trigger="click"
-					visible={visible}
-					onVisibleChange={() => setVisible(true)}
-					placement="top"
-					style={{ width: 350 }}>
-					<Typography.Paragraph
-						style={{
-							cursor: 'pointer',
-							width: column.width ? column.width - 30 : '100'
-						}}
-						copyable={copyable ? { onCopy: () => onCopy(finalValue, original) } : false}
-						ellipsis={true}>
-						{finalValue}
-					</Typography.Paragraph>
-				</Popover>
-			</div>
-		) : (
-			<Typography.Text copyable={copyable ? { onCopy: () => onCopy(finalValue, original) } : false}>
-				{finalValue}
-			</Typography.Text>
+		return (
+			<Popover
+				content={
+					<>
+						<div dangerouslySetInnerHTML={{ __html: value }} />
+						<br />
+						<Button onClick={() => setVisible(false)} type="Link">
+							Close
+						</Button>
+					</>
+				}
+				trigger="click"
+				visible={visible}
+				onVisibleChange={() => setVisible(true)}
+				placement="top"
+				style={{ width: 350 }}>
+				<Typography.Paragraph
+					style={{ cursor: 'pointer', marginBottom: 0 }}
+					copyable={copyable ? { onCopy: () => onCopy(finalValue, original) } : false}
+					ellipsis={{ rows: 2 }}>
+					{finalValue}
+				</Typography.Paragraph>
+			</Popover>
 		);
 	}
 );
