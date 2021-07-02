@@ -56,20 +56,15 @@ export default props => {
 	};
 };
 
-const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert, isPopupContent = false) => {
+const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert) => {
 	const strip = stripHTMLTags ? striptags(toConvert) : toConvert;
-	const replaceText = isPopupContent
-		? strip.replace(
-				new RegExp(keywords, 'g'),
-				`<span key='${keywords}-${keywords.length}' style='background-color: yellow; font-weight: bold;'>${keywords}</span>`
-		  )
-		: reactStringReplace(strip, new RegExp('(' + keywords + ')', 'i'), (match, index) => {
-				return (
-					<span key={`${match}-${index}`} style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>
-						{match}
-					</span>
-				);
-		  });
+	const replaceText = reactStringReplace(strip, new RegExp('(' + keywords + ')', 'gi'), (match, index) => {
+		return (
+			<span key={`${match}-${index}`} style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>
+				{match}
+			</span>
+		);
+	});
 
 	return replaceText;
 };
@@ -149,8 +144,8 @@ const Cell = memo(
 		}
 
 		const finalValue = stripHTMLTags
-			? highlightsKeywords(keywords, (stripHTMLTags = true), value, false)
-			: highlightsKeywords(keywords, (stripHTMLTags = false), value, false);
+			? highlightsKeywords(keywords, (stripHTMLTags = true), value)
+			: highlightsKeywords(keywords, (stripHTMLTags = false), value);
 
 		return poppable ? (
 			<Popover
@@ -158,7 +153,13 @@ const Cell = memo(
 					<>
 						<div
 							dangerouslySetInnerHTML={{
-								__html: highlightsKeywords(keywords, (stripHTMLTags = false), value, true)
+								__html:
+									keywords.length === 0
+										? value
+										: value.replace(
+												new RegExp(keywords, 'g'),
+												`<span key='${keywords}-${keywords.length}' style='background-color: yellow; font-weight: bold;'>${keywords}</span>`
+										  )
 							}}
 						/>
 						<br />
