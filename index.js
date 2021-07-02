@@ -18,6 +18,7 @@ export default props => {
 		multiple = false,
 		onChange,
 		onCopy = () => {},
+		poppable = false,
 		richText,
 		stripHTMLTags = false,
 		...defaultProps
@@ -39,6 +40,7 @@ export default props => {
 							multiple,
 							onChange,
 							onCopy,
+							poppable,
 							richText,
 							stripHTMLTags
 						}}
@@ -54,15 +56,20 @@ export default props => {
 	};
 };
 
-const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert) => {
+const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert, isPopupContent = false) => {
 	const strip = stripHTMLTags ? striptags(toConvert) : toConvert;
-	const replaceText = reactStringReplace(strip, new RegExp('(' + keywords + ')', 'gi'), (match, index) => {
-		return (
-			<span key={`${match}-${index}`} style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>
-				{match}
-			</span>
-		);
-	});
+	const replaceText = isPopupContent
+		? strip.replace(
+				new RegExp(keywords, 'g'),
+				`<span key='${keywords}-${keywords.length}' style='background-color: yellow; font-weight: bold;'>${keywords}</span>`
+		  )
+		: reactStringReplace(strip, new RegExp('(' + keywords + ')', 'i'), (match, index) => {
+				return (
+					<span key={`${match}-${index}`} style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>
+						{match}
+					</span>
+				);
+		  });
 
 	return replaceText;
 };
@@ -70,7 +77,19 @@ const highlightsKeywords = (keywords, stripHTMLTags = false, toConvert) => {
 const Cell = memo(
 	({
 		row: { original },
-		other: { copyable, editable, format, id, keywords, multiple, onChange, onCopy, richText, stripHTMLTags },
+		other: {
+			copyable,
+			editable,
+			format,
+			id,
+			keywords,
+			multiple,
+			onChange,
+			onCopy,
+			poppable,
+			richText,
+			stripHTMLTags
+		},
 		value
 	}) => {
 		if (typeof value === 'undefined') return null;
@@ -130,14 +149,18 @@ const Cell = memo(
 		}
 
 		const finalValue = stripHTMLTags
-			? highlightsKeywords(keywords, (stripHTMLTags = true), value)
-			: highlightsKeywords(keywords, (stripHTMLTags = false), value);
+			? highlightsKeywords(keywords, (stripHTMLTags = true), value, false)
+			: highlightsKeywords(keywords, (stripHTMLTags = false), value, false);
 
-		return (
+		return poppable ? (
 			<Popover
 				content={
 					<>
-						<div dangerouslySetInnerHTML={{ __html: value }} />
+						<div
+							dangerouslySetInnerHTML={{
+								__html: highlightsKeywords(keywords, (stripHTMLTags = false), value, true)
+							}}
+						/>
 						<br />
 						<Button onClick={() => setVisible(false)} type="Link">
 							Close
@@ -156,6 +179,13 @@ const Cell = memo(
 					{finalValue}
 				</Typography.Paragraph>
 			</Popover>
+		) : (
+			<Typography.Paragraph
+				style={{ marginBottom: 0 }}
+				copyable={copyable ? { onCopy: () => onCopy(striptags(value), original) } : false}
+				ellipsis={{ rows: 2 }}>
+				{finalValue}
+			</Typography.Paragraph>
 		);
 	}
 );
