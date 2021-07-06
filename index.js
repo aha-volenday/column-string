@@ -184,7 +184,7 @@ const Cell = memo(
 			<Typography.Paragraph
 				style={{ marginBottom: 0 }}
 				copyable={copyable ? { onCopy: () => onCopy(striptags(value), original) } : false}
-				ellipsis={{ rows: 2 }}>
+				ellipsis={{ rows: id == 'LessonLearned' ? 3 : 2 }}>
 				{finalValue}
 			</Typography.Paragraph>
 		);
